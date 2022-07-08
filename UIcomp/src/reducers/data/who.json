@@ -1,0 +1,32 @@
+[
+  {
+    "avatarIcon": "/pics/pca.jpg",
+    "userName": "Prince Charles",
+    "handle": "@PCA"
+  },
+  {
+    "avatarIcon": "/pics/serb.jpg",
+    "userName": "Serban Ghenea",
+    "handle": "@SerbanGhenea"
+  },
+  {
+    "avatarIcon": "/pics/cr.jpg",
+    "userName": "Capitol Records",
+    "handle": "@CapitolRecords"
+  },
+  {
+    "avatarIcon": "/pics/21s.jpg",
+    "userName": "21 Savage",
+    "handle": "@21Savage"
+  },
+  {
+    "avatarIcon": "/pics/joji.jpg",
+    "userName": "Joji",
+    "handle": "@joji"
+  },
+  {
+    "avatarIcon": "/pics/kdl.jpg",
+    "userName": "Kid Laroi",
+    "handle": "@kidlaroi"
+  }
+]

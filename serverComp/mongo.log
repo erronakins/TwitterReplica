@@ -1,0 +1,293 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+> use webdev
+switched to db webdev
+
+> db.movies.insert({title:'Aliens',rating: 4.5})
+WriteResult({ "nInserted" : 1 })
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+webdev  0.000GB
+
+> db.movies.insert({title: 'Terminator', rating: 4.8})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({title: 'Avatar', rating: 4.7})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({title: 'Dune', rating: 4.9})
+WriteResult({ "nInserted" : 1 })
+
+
+> db.movies.find()
+{ "_id" : ObjectId("61a56d624e2ca06755d9cc75"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61a56d984e2ca06755d9cc76"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61a56da54e2ca06755d9cc77"), "title" : "Avatar", "rating" : 4.7 }
+{ "_id" : ObjectId("61a56db14e2ca06755d9cc78"), "title" : "Dune", "rating" : 4.9 }
+
+> db.movies.find({_id: ObjectId("61a56d624e2ca06755d9cc75")});
+{ "_id" : ObjectId("61a56d624e2ca06755d9cc75"), "title" : "Aliens", "rating" : 4.5 }
+
+> db.movies.find({title: 'Aliens'});
+{ "_id" : ObjectId("61a56d624e2ca06755d9cc75"), "title" : "Aliens", "rating" : 4.5 }
+
+
+
+> db.movies.find().pretty()
+{
+        "_id" : ObjectId("61a56d624e2ca06755d9cc75"),
+        "title" : "Aliens",
+        "rating" : 4.5
+}
+{
+        "_id" : ObjectId("61a56d984e2ca06755d9cc76"),
+        "title" : "Terminator",
+        "rating" : 4.8
+}
+{
+        "_id" : ObjectId("61a56da54e2ca06755d9cc77"),
+        "title" : "Avatar",
+        "rating" : 4.7
+}
+{
+        "_id" : ObjectId("61a56db14e2ca06755d9cc78"),
+        "title" : "Dune",
+        "rating" : 4.9
+}
+
+
+> db.movies.updateOne({title: 'Avatar'}, { $set: {rating: 4.9} });
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.movies.updateOne({_id:ObjectId("61a56db14e2ca06755d9cc78")}, { $set: {rating: 4.2} });
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.movies.deleteOne({_id:ObjectId("61a56db14e2ca06755d9cc78")})
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+
+> db.movies.find()
+{ "_id" : ObjectId("61a56d624e2ca06755d9cc75"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61a56d984e2ca06755d9cc76"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61a56da54e2ca06755d9cc77"), "title" : "Avatar", "rating" : 4.9 }
+
+
+
+
+
+> db.tweets.insert({
+...     "topic": "Web Development",
+...     "userName": "ReactJS",
+...     "verified": false,
+...     "handle": "ReactJS",
+...     "time": "2h",
+...     "title": "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs",
+...     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+...     "attachments": {
+...       "video": "unKvMC3Y1kI"
+...     },
+...     "logo-image": "/pics/pca.jpg",
+...     "avatar-image": "/pics/cr.jpg",
+...     "stats": {
+...       "comments": 123,
+...       "retweets": 234,
+...       "likes": 345
+...     }
+...   })
+WriteResult({ "nInserted" : 1 })
+
+> db.tweets.insert({
+...     "topic": "Space",
+...     "userName": "SpaceX",
+...     "verified": false,
+...     "handle": "spacex",
+...     "title": "",
+...     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+...     "attachments": {
+...       "image": "/pics/kdl.jpg"
+...     },
+...     "time": "last month",
+...     "logo-image": "/pics/serb.jpg",
+...     "avatar-image": "/pics/joji",
+...     "tweets": "120K",
+...     "stats": {
+...       "comments": 123,
+...       "retweets": 234,
+...       "likes": 345
+...     }
+...   })
+WriteResult({ "nInserted" : 1 })
+
+
+> db.tweets.insert({
+...     "topic": "Space",
+...     "userName": "Scott Manley",
+...     "verified": true,
+...     "handle": "DJSnM",
+...     "published-date": "2020-12-10",
+...     "time": "1 day",
+...     "title": "JavaScript is programming language that can run on browsers as well as desktops",
+...     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+...     "logo-image": "/pics/21s.jpg",
+...     "avatar-image": "/pics/21s.jpg",
+...     "tweets": "123K",
+...     "stats": {
+...       "comments": 123,
+...       "retweets": 234,
+...       "likes": 345
+...     }
+...   })
+WriteResult({ "nInserted" : 1 })
+
+
+> db.tweets.insert({
+...     "_id": "345",
+...     "topic": "Web Development",
+...     "userName": "jQuery",
+...     "verified": false,
+...     "handle": "jQuery",
+...     "title": "jQuery",
+...     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+...     "time": "last week",
+...     "logo-image": "/pics/joji.jpg",
+...     "avatar-image": "../../../images/jquery.png",
+...     "tweets": "122K",
+...     "stats": {
+...       "comments": 123,
+...       "retweets": 234,
+...       "likes": 345
+...     }
+...   })
+WriteResult({ "nInserted" : 1 })
+
+
+> db.tweets.insert({
+...     "topic": "Web Development",
+...     "userName": "NodeJS",
+...     "verified": true,
+...     "handle": "NodeJS",
+...     "title": "",
+...     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+...     "time": "last month",
+...     "logo-image": "/pics/bb.jpeg",
+...     "avatar-image": "../../../images/node.png",
+...     "tweets": "120K",
+...     "stats": {
+...       "comments": 123,
+...       "retweets": 234,
+...       "likes": 345
+...     }
+...   })
+WriteResult({ "nInserted" : 1 })
+
+> db.tweets.find()
+{ "_id" : ObjectId("61a57aaeab5f41255001860d"), "topic" : "Web Development", "userName" : "ReactJS", "verified" : false, "handle" : "ReactJS", "time" : "2h", "title" : "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs", "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "attachments" : { "video" : "unKvMC3Y1kI" }, "logo-image" : "/pics/pca.jpg", "avatar-image" : "/pics/cr.jpg", "stats" : { "comments" : 123, "retweets" : 234, "likes" : 345 } }
+{ "_id" : ObjectId("61a57acaab5f41255001860e"), "topic" : "Space", "userName" : "SpaceX", "verified" : false, "handle" : "spacex", "title" : "", "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "attachments" : { "image" : "/pics/kdl.jpg" }, "time" : "last month", "logo-image" : "/pics/serb.jpg", "avatar-image" : "/pics/joji", "tweets" : "120K", "stats" : { "comments" : 123, "retweets" : 234, "likes" : 345 } }
+{ "_id" : ObjectId("61a57b48b7ae21c21a78c938"), "topic" : "Space", "userName" : "Scott Manley", "verified" : true, "handle" : "DJSnM", "published-date" : "2020-12-10", "time" : "1 day", "title" : "JavaScript is programming language that can run on browsers as well as desktops", "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "logo-image" : "/pics/21s.jpg", "avatar-image" : "/pics/21s.jpg", "tweets" : "123K", "stats" : { "comments" : 123, "retweets" : 234, "likes" : 345 } }
+{ "_id" : "345", "topic" : "Web Development", "userName" : "jQuery", "verified" : false, "handle" : "jQuery", "title" : "jQuery", "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "time" : "last week", "logo-image" : "/pics/joji.jpg", "avatar-image" : "../../../images/jquery.png", "tweets" : "122K", "stats" : { "comments" : 123, "retweets" : 234, "likes" : 345 } }
+{ "_id" : ObjectId("61a57b78b7ae21c21a78c939"), "topic" : "Web Development", "userName" : "NodeJS", "verified" : true, "handle" : "NodeJS", "title" : "", "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "time" : "last month", "logo-image" : "/pics/bb.jpeg", "avatar-image" : "../../../images/node.png", "tweets" : "120K", "stats" : { "comments" : 123, "retweets" : 234, "likes" : 345 } }
+
+
+> db.tweets.find().pretty()
+{
+        "_id" : ObjectId("61a57aaeab5f41255001860d"),
+        "topic" : "Web Development",
+        "userName" : "ReactJS",
+        "verified" : false,
+        "handle" : "ReactJS",
+        "time" : "2h",
+        "title" : "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs",
+        "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "attachments" : {
+                "video" : "unKvMC3Y1kI"
+        },
+        "logo-image" : "/pics/pca.jpg",
+        "avatar-image" : "/pics/cr.jpg",
+        "stats" : {
+                "comments" : 123,
+                "retweets" : 234,
+                "likes" : 345
+        }
+}
+{
+        "_id" : ObjectId("61a57acaab5f41255001860e"),
+        "topic" : "Space",
+        "userName" : "SpaceX",
+        "verified" : false,
+        "handle" : "spacex",
+        "title" : "",
+        "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "attachments" : {
+                "image" : "/pics/kdl.jpg"
+        },
+        "time" : "last month",
+        "logo-image" : "/pics/serb.jpg",
+        "avatar-image" : "/pics/joji",
+        "tweets" : "120K",
+        "stats" : {
+                "comments" : 123,
+                "retweets" : 234,
+                "likes" : 345
+        }
+}
+{
+        "_id" : ObjectId("61a57b48b7ae21c21a78c938"),
+        "topic" : "Space",
+        "userName" : "Scott Manley",
+        "verified" : true,
+        "handle" : "DJSnM",
+        "published-date" : "2020-12-10",
+        "time" : "1 day",
+        "title" : "JavaScript is programming language that can run on browsers as well as desktops",
+        "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "logo-image" : "/pics/21s.jpg",
+        "avatar-image" : "/pics/21s.jpg",
+        "tweets" : "123K",
+        "stats" : {
+                "comments" : 123,
+                "retweets" : 234,
+                "likes" : 345
+        }
+}
+{
+        "_id" : "345",
+        "topic" : "Web Development",
+        "userName" : "jQuery",
+        "verified" : false,
+        "handle" : "jQuery",
+        "title" : "jQuery",
+        "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "time" : "last week",
+        "logo-image" : "/pics/joji.jpg",
+        "avatar-image" : "../../../images/jquery.png",
+        "tweets" : "122K",
+        "stats" : {
+                "comments" : 123,
+                "retweets" : 234,
+                "likes" : 345
+        }
+}
+{
+        "_id" : ObjectId("61a57b78b7ae21c21a78c939"),
+        "topic" : "Web Development",
+        "userName" : "NodeJS",
+        "verified" : true,
+        "handle" : "NodeJS",
+        "title" : "",
+        "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "time" : "last month",
+        "logo-image" : "/pics/bb.jpeg",
+        "avatar-image" : "../../../images/node.png",
+        "tweets" : "120K",
+        "stats" : {
+                "comments" : 123,
+                "retweets" : 234,
+                "likes" : 345
+        }
+}
+
+

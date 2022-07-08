@@ -1,0 +1,33 @@
+[
+  {
+    "topic": "Music Coin",
+    "userName": "GRAMMYs",
+    "time": "2h",
+    "title": "Check out the new Grammy Coin. Singer/Songwriter/Producer Erron Akins picks up four Grammys this night.",
+    "image": "/pics/gram.jpg"
+  },
+  {
+    "topic": "",
+    "userName": "BILLBOARD",
+    "time": "1 day",
+    "title": "Billboard Coin ups price after this weeks chart. Topping the list are artists Erron Akins, Drake, Kid Laroi, Doja Cat and Justin Bieber.",
+    "image": "/pics/bb.jpeg",
+    "tweets": "24.4M"
+  },
+  {
+    "topic": "Sport Coin",
+    "userName": "",
+    "title": "All about Sport-Coin",
+    "time": "last week",
+    "image": "/pics/sport.jpg",
+    "tweets": "122K"
+  },
+  {
+    "topic": "Entertainment VC",
+    "userName": "Hulu",
+    "title": "",
+    "time": "last month",
+    "image": "/pics/hulu.jfif",
+    "tweets": "120K"
+  }
+]

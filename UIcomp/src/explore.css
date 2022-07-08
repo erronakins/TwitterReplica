@@ -1,0 +1,80 @@
+
+		.wd-center{
+			align-items: center;
+    			justify-content: center;
+		}
+		.wd-grey{
+			color:rgb(128,128,128);
+		}
+		.wd-blue{
+			color:#2a9fd6;
+		}
+		.wd-bold{
+			  font-weight: bold;
+		}
+		.wd-cur-image{
+			  border-radius: 25px;
+		}
+		.wd-right{
+			float:right;
+		}
+		.wd-cir-image{
+  			border-radius:50%;
+		}
+
+
+ 		.wd-cpos {
+     			position: absolute; 
+     			top: 21px;
+     			color: rgb(112, 112, 112);
+     			cursor: pointer;
+     			padding: 12px;
+     			padding-left:24px;
+     			margin: -12px;  
+		}
+
+
+		.wd-input {
+     			position: relative;
+     			width: 110%;
+			height: 90%;
+     			padding: 10px 40px;
+     			border-radius: 50px;
+     			border-style: solid;
+     			border-color: rgb(211,211,211)    
+		}
+
+		.wd-cimg {
+    			position: relative;
+    			display: inline-block;
+    
+		}
+
+		.wd-mtext {
+    			text-align: left; 
+    
+    			width:100%; height:0;
+    			font-size: 24px; line-height: 0;
+    			color:white;
+    			position:absolute;
+    			top: 92%;
+    			z-index:1;
+		}
+
+		.wd-cimg img {
+    			display:block;
+    			max-width: 100%;
+		}
+
+		.wd-bottom-left {
+  			position: absolute;
+  			font-size: 30px;
+  			color: white;
+
+
+  			padding-top: 250px;
+		}
+
+		.wd-button {
+			width:100%; text-align:center; min-width:65px;
+		}	

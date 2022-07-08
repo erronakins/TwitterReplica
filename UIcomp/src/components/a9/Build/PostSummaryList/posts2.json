@@ -1,0 +1,33 @@
+[
+  {
+    "topic": "Los Angeles",
+    "userName": "bob",
+    "time": "20min",
+    "title": "Check out Virtual Currency event in Los Angeles Today. We have a lot of stuff going on at Santa Monica Pier.",
+    "image": "/pics/cr.jpg"
+  },
+  {
+    "topic": "Basketball",
+    "userName": "",
+    "title": "Basketball based Crypto",
+    "time": "last week",
+    "image": "/pics/sport.jpg",
+    "tweets": "122K"
+  },
+  {
+    "topic": "",
+    "userName": "Billboard",
+    "time": "1 day",
+    "title": "What is Billboard Coin. Coin based on charts: topping the list are artists Erron Akins, Drake, Kid Laroi, Doja Cat and Justin Bieber.",
+    "image": "/pics/bb.jpeg",
+    "tweets": "24.4M"
+  },
+  {
+    "topic": "Entertainment VC",
+    "userName": "Hulu",
+    "title": "",
+    "time": "last month",
+    "image": "/pics/hulu.jfif",
+    "tweets": "120K"
+  }
+]
